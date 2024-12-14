@@ -34,7 +34,7 @@ curl -H "X-API-Key: 123" http://localhost:8080/api/health_check
 ## Build and Run Lambda Docker
 ```shell
 image_name=newsclocker-backend-apis-lambda
-docker build -t ${image_name}:latest -f ./Dockerfile.aws.lambda . --platform linux/amd64
+docker build -t ${image_name}:latest -f ./Dockerfile.aws.lambda .
 ```
 ```shell
 image_name=newsclocker-backend-apis-lambda
@@ -53,8 +53,8 @@ docker exec -it ${image_name} /bin/bash
 ```shell
 # TEST healthcheck
 curl -XPOST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{
-    "resource": "/healthcheck",
-    "path": "/healthcheck",
+    "resource": "/api/health_check",
+    "path": "/api/health_check",
     "httpMethod": "GET",
     "requestContext": {
     },

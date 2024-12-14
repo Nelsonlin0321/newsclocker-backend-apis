@@ -1,25 +1,7 @@
-# Use a more specific and lighter base image
-FROM public.ecr.aws/lambda/python:3.12-arm64
-
-# Set environment variables
-ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1
-
-# Set the working directory
-WORKDIR /app
-
-# Copy only requirements first to leverage Docker cache
-COPY requirements.txt .
-
-# Install dependencies in a single layer and clean up
-RUN pip install --no-cache-dir -r requirements.txt && \
-    rm -rf /root/.cache/pip
-
-# Copy the rest of the application code
+FROM public.ecr.aws/lambda/python:3.12
+# Copy function code
 COPY . .
 
-RUN ls -la /app
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Set the entrypoint
-CMD ["main.handler" ]
+CMD [ "main.handler" ]
