@@ -1,13 +1,10 @@
 # Use a more specific and lighter base image
-FROM python:3.12-slim-bullseye
+FROM public.ecr.aws/lambda/python:3.12-arm64
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=1
-
-# Create a non-root user
-RUN groupadd -r appuser && useradd -r -g appuser appuser
 
 # Set the working directory
 WORKDIR /app
@@ -22,11 +19,7 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 # Copy the rest of the application code
 COPY . .
 
-# Change ownership of the working directory to the non-root user
-RUN chown -R appuser:appuser /app
-
-# Switch to non-root user
-USER appuser
+RUN ls -la /app
 
 # Set the entrypoint
-ENTRYPOINT ["sh", "./boot.sh"]
+CMD ["app.main.handler" ]

@@ -8,6 +8,7 @@ from pymongo import MongoClient
 import uvicorn
 from app.auth import get_api_key
 from app.routers import v1
+from mangum import Mangum
 
 mongodb_url = os.getenv("MONGODB_URL")
 
@@ -82,6 +83,7 @@ async def health_check(api_key: str = Security(get_api_key)):
     return JSONResponse(content={"message": response, "start_hk_time": start_time},
                         status_code=status_code)
 
+handler = Mangum(app)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
