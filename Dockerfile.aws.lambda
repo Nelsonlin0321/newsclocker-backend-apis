@@ -22,4 +22,4 @@ COPY . .
 RUN ls -la /app
 
 # Set the entrypoint
-CMD ["app.main.handler" ]
+CMD ["main.handler" ]
