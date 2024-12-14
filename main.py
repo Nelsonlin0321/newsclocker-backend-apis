@@ -1,11 +1,12 @@
 import datetime
 import os
-from fastapi import FastAPI, Request, status
+from fastapi import FastAPI, Request, status, Security
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from loguru import logger
 from pymongo import MongoClient
 import uvicorn
+from app.auth import get_api_key
 from app.routers import v1
 
 mongodb_url = os.getenv("MONGODB_URL")
@@ -57,7 +58,7 @@ async def log_requests(request: Request, call_next):
 
 
 @app.get(f"{PREFIX}/health_check")
-async def health_check():
+async def health_check(api_key: str = Security(get_api_key)):
     """
     Endpoint to check the server's uptime.
 
@@ -83,4 +84,4 @@ async def health_check():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

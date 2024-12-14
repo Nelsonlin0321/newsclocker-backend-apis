@@ -1,7 +1,8 @@
 import os
 import httpx
 import json
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, Query, Security
+from app.auth import get_api_key
 from app.models import SearchResponse
 from fastapi.responses import JSONResponse
 
@@ -37,13 +38,14 @@ async def search_news(query, gl="us", hl="en", num=10, tbs="qdr:d"):
     return response.json()
 
 
-@router.get("/news-search", response_model=SearchResponse)
+@router.get("/news-search", response_model=SearchResponse,)
 async def search(
     query: str = Query(..., description="Search query"),
     gl: str = Query("us", description="Geographical location"),
     hl: str = Query("en", description="Language"),
     num: int = Query(10, description="Number of results"),
-    tbs: str = Query("qdr:d", description="Time-based search")
+    tbs: str = Query("qdr:d", description="Time-based search"),
+    api_key: str = Security(get_api_key)
 ):
     result = await search_news(query, gl, hl, num, tbs)
     return JSONResponse(content=result)
