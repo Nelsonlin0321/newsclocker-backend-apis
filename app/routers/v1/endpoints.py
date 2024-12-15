@@ -20,9 +20,9 @@ SERPER_API_KEY = os.environ["SERPER_API_KEY"]
 
 
 @alru_cache(maxsize=1024, ttl=60*60*12)
-async def search_news(query, gl="us", hl="en", num=10, tbs="qdr:d"):
+async def search_news(q, gl="us", hl="en", num=10, tbs="qdr:d"):
     payload = json.dumps({
-        "q": query,
+        "q": q,
         "gl": gl,
         "hl": hl,
         "num": num,
@@ -41,12 +41,12 @@ async def search_news(query, gl="us", hl="en", num=10, tbs="qdr:d"):
 
 @router.get("/news-search", response_model=SearchResponse)
 async def search(
-    query: str = Query(..., description="Search query"),
+    q: str = Query(..., description="Search query"),
     gl: str = Query("us", description="Geographical location"),
     hl: str = Query("en", description="Language"),
     num: int = Query(10, description="Number of results"),
     tbs: str = Query("qdr:d", description="Time-based search"),
     api_key: str = Security(get_api_key)
 ):
-    result = await search_news(query, gl, hl, num, tbs)
+    result = await search_news(q, gl, hl, num, tbs)
     return JSONResponse(content=result)
