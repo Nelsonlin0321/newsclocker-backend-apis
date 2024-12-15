@@ -5,6 +5,7 @@ from fastapi import APIRouter, Query, Security
 from app.auth import get_api_key
 from app.models import SearchResponse
 from fastapi.responses import JSONResponse
+from async_lru import alru_cache
 
 ROUTE_NAME = "v1"
 
@@ -18,8 +19,8 @@ URL = "https://google.serper.dev/news"
 SERPER_API_KEY = os.environ["SERPER_API_KEY"]
 
 
+@alru_cache(maxsize=1024, ttl=60*60*12)
 async def search_news(query, gl="us", hl="en", num=10, tbs="qdr:d"):
-
     payload = json.dumps({
         "q": query,
         "gl": gl,
@@ -38,7 +39,7 @@ async def search_news(query, gl="us", hl="en", num=10, tbs="qdr:d"):
     return response.json()
 
 
-@router.get("/news-search", response_model=SearchResponse,)
+@router.get("/news-search", response_model=SearchResponse)
 async def search(
     query: str = Query(..., description="Search query"),
     gl: str = Query("us", description="Geographical location"),
