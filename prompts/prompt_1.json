@@ -1,0 +1,205 @@
+[
+    {
+        "id": "1",
+        "title": "Summarize the News",
+        "description": "Generate a concise summary of the news article, highlighting the key points and main takeaway for readers who need a quick understanding.",
+        "category": "News Summarization",
+        "icon": "📝"
+    },
+    {
+        "id": "2",
+        "title": "Extract Key Events",
+        "description": "Identify and list the major events mentioned in the news article, specifying the who, what, when, and where for each event.",
+        "category": "Event Extraction",
+        "icon": "📅"
+    },
+    {
+        "id": "3",
+        "title": "Generate a Timeline",
+        "description": "Construct a chronological timeline of all the events described in the news, including relevant dates and context for each event.",
+        "category": "Timeline Generation",
+        "icon": "⏳"
+    },
+    {
+        "id": "4",
+        "title": "Cluster by Topic",
+        "description": "Group this news article with other related articles based on shared topics or themes, providing insights into broader coverage.",
+        "category": "Topic Clustering",
+        "icon": "📚"
+    },
+    {
+        "id": "5",
+        "title": "Identify Entities",
+        "description": "Extract all named entities (people, organizations, locations, etc.) mentioned in the news article and provide their context.",
+        "category": "Named Entity Recognition",
+        "icon": "🔍"
+    },
+    {
+        "id": "6",
+        "title": "Analyze Relationships",
+        "description": "Map out relationships between the key entities discussed in the news article, showing how they are connected and why it matters.",
+        "category": "Relationship Extraction",
+        "icon": "🔗"
+    },
+    {
+        "id": "7",
+        "title": "Gauge Sentiment",
+        "description": "Analyze the tone and sentiment of the news article, determining whether it is positive, negative, or neutral, along with supporting evidence.",
+        "category": "Sentiment Analysis",
+        "icon": "😊"
+    },
+    {
+        "id": "8",
+        "title": "Compare News Stories",
+        "description": "Compare this news article with a similar one to identify differences in coverage, tone, and key facts presented.",
+        "category": "News Comparison",
+        "icon": "⚖️"
+    },
+    {
+        "id": "9",
+        "title": "Spot Trends",
+        "description": "Identify patterns or trends emerging from the news article and related news coverage, highlighting recurring topics or developments.",
+        "category": "Trend Analysis",
+        "icon": "📈"
+    },
+    {
+        "id": "10",
+        "title": "Detect Bias",
+        "description": "Analyze the news article for potential bias, identifying language, framing, or omissions that may indicate a particular viewpoint.",
+        "category": "Bias Detection",
+        "icon": "⚠️"
+    },
+    {
+        "id": "11",
+        "title": "Assess Credibility",
+        "description": "Evaluate the credibility of the news article by analyzing the sources, evidence provided, and overall trustworthiness.",
+        "category": "Credibility Assessment",
+        "icon": "✔️"
+    },
+    {
+        "id": "12",
+        "title": "Verify Facts",
+        "description": "Fact-check the claims made in the news article and provide supporting or refuting evidence from credible sources.",
+        "category": "Fact Checking",
+        "icon": "🔎"
+    },
+    {
+        "id": "13",
+        "title": "Detect Misinformation",
+        "description": "Identify any signs of misinformation in the news article, such as false claims, misleading statements, or lack of evidence.",
+        "category": "Misinformation Detection",
+        "icon": "🚨"
+    },
+    {
+        "id": "14",
+        "title": "Spot Propaganda",
+        "description": "Analyze the news article for propaganda techniques, such as emotional manipulation, appeals to authority, or disinformation tactics.",
+        "category": "Propaganda Detection",
+        "icon": "📢"
+    },
+    {
+        "id": "15",
+        "title": "Summarize Multiple Articles",
+        "description": "Generate a unified summary from multiple related news articles, capturing the main points and key differences across coverage.",
+        "category": "Multi-Document Summarization",
+        "icon": "🗞️"
+    },
+    {
+        "id": "16",
+        "title": "Analyze Cross-Lingual News",
+        "description": "Provide insights into news coverage across different languages, highlighting similarities and differences in reporting.",
+        "category": "Cross-Lingual News Analysis",
+        "icon": "🌍"
+    },
+    {
+        "id": "17",
+        "title": "Translate News",
+        "description": "Translate the news article into another language while preserving its meaning and cultural context.",
+        "category": "News Translation",
+        "icon": "🌐"
+    },
+    {
+        "id": "18",
+        "title": "Answer Questions",
+        "description": "Answer specific questions related to the news article by extracting relevant information and providing concise responses.",
+        "category": "Question Answering",
+        "icon": "❓"
+    },
+    {
+        "id": "19",
+        "title": "Personalized Digest",
+        "description": "Create a personalized news digest tailored to the user’s interests, summarizing the most relevant news articles.",
+        "category": "Personalized News Digest",
+        "icon": "📩"
+    },
+    {
+        "id": "20",
+        "title": "Recommend Content",
+        "description": "Suggest additional news articles or content based on the themes and topics discussed in the current news article.",
+        "category": "Content Recommendation",
+        "icon": "🤝"
+    },
+    {
+        "id": "21",
+        "title": "Send News Alerts",
+        "description": "Generate a real-time alert for a breaking news event or significant update, customized to the user’s preferences.",
+        "category": "News Alerting",
+        "icon": "🔔"
+    },
+    {
+        "id": "22",
+        "title": "Generate Stories",
+        "description": "Create a fictional or creative story inspired by the events described in the news article.",
+        "category": "News-Based Story Generation",
+        "icon": "📖"
+    },
+    {
+        "id": "23",
+        "title": "Visualize News Data",
+        "description": "Generate data visualizations, such as charts or graphs, based on the information and statistics in the news article.",
+        "category": "Data Visualization from News",
+        "icon": "📊"
+    },
+    {
+        "id": "24",
+        "title": "Predict Future Trends",
+        "description": "Use the information in the news article to predict potential future developments or trends in the related field.",
+        "category": "Predictive Analytics from News",
+        "icon": "🔮"
+    },
+    {
+        "id": "25",
+        "title": "Automate News Reporting",
+        "description": "Generate a professional, publishable news article based on structured data or key information provided.",
+        "category": "Automated News Reporting",
+        "icon": "📰"
+    },
+    {
+        "id": "26",
+        "title": "Provide Financial Insights",
+        "description": "Analyze the financial implications of the news article, identifying potential impacts on markets, industries, or investments.",
+        "category": "Financial Insights",
+        "icon": "💰"
+    },
+    {
+        "id": "27",
+        "title": "Assess Risks",
+        "description": "Evaluate potential risks or threats discussed in the news article, providing context and recommendations for mitigation.",
+        "category": "Risk Assessment",
+        "icon": "⚡"
+    },
+    {
+        "id": "28",
+        "title": "Simplify Complex News",
+        "description": "Rephrase the news article into simpler language for broader understanding, ensuring clarity without losing key details.",
+        "category": "Simplified Explanation",
+        "icon": "🧠"
+    },
+    {
+        "id": "29",
+        "title": "Monitor Brand Reputation",
+        "description": "Analyze the news article for mentions of a specific brand or organization, assessing the tone and potential impact on reputation.",
+        "category": "Brand Reputation Monitoring",
+        "icon": "🏢"
+    }
+]

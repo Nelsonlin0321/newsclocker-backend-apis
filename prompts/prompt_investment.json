@@ -1,0 +1,37 @@
+[
+    {
+        "id": "1",
+        "title": "Analyze Stock Potential",
+        "description": "Analyze the provided news article for potential buy signals for the given stock. Consider factors like company performance, industry trends, and market sentiment. Provide a summary of positive and negative indicators.",
+        "category": "Stock Buy Signal",
+        "icon": "📈"
+    },
+    {
+        "id": "2",
+        "title": "Expert Opinion Synthesis",
+        "description": "Extract and synthesize opinions from different experts quoted in the news article regarding the stock's potential for growth. Highlight any consensus or disagreement among the experts.",
+        "category": "Stock Buy Signal",
+        "icon": "💬"
+    },
+    {
+        "id": "3",
+        "title": "Risk Assessment",
+        "description": "Identify and assess potential risks and downsides mentioned in the news article that could negatively impact the stock's performance. Provide a balanced perspective for informed investment decisions.",
+        "category": "Stock Buy Signal",
+        "icon": "⚠️"
+    },
+    {
+        "id": "4",
+        "title": "News Sentiment Analysis",
+        "description": "Analyze the overall sentiment of the news article towards the stock. Determine if the news is generally positive, negative, or neutral regarding its potential for growth.",
+        "category": "Stock Buy Signal",
+        "icon": "🌡️"
+    },
+    {
+        "id": "5",
+        "title": "Actionable Insights",
+        "description": "Based on the news analysis, provide actionable insights for investors. This could include potential buy signals, factors to monitor, or alternative investment options.",
+        "category": "Stock Buy Signal",
+        "icon": "💡"
+    }
+]
