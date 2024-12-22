@@ -1,6 +1,9 @@
+import os
+import boto3
 import re
 from datetime import datetime, timedelta
 import json
+from loguru import logger
 
 
 def read_json_file(file_path):
@@ -46,3 +49,21 @@ def get_current_time(relative_time_str):
         return current_time
     else:
         raise ValueError("Unsupported time unit")
+
+
+def sanitize_filename(filename: str) -> str:
+    # Replace any character that is not alphanumeric or underscore with an underscore
+    sanitized = re.sub(r'[^a-zA-Z0-9_]', '_', filename)
+    return sanitized
+
+
+def upload_file_to_s3(file_path, bucket_name="cloudfront-aws-bucket", s3_folder="newsclocker/insight-pdf"):
+
+    file_name = os.path.basename(file_path)
+    s3_client = boto3.client('s3')
+    s3_path = os.path.join(s3_folder, file_name)
+
+    s3_client.upload_file(file_path, bucket_name, s3_path)
+    logger.info(f"Uploaded {file_path} to s3://{bucket_name}/{s3_path}")
+
+    return f"https://d2gewc5xha837s.cloudfront.net/{s3_path}"

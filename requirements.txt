@@ -32,3 +32,8 @@ starlette==0.41.3
 typing_extensions==4.12.2
 uvicorn==0.33.0
 async-lru==2.0.4
+boto3==1.35.86
+botocore==1.35.86
+
+# crewai== 0.86.0
+# crewai-tools==0.17.0

@@ -3,6 +3,7 @@ from fastapi import APIRouter, Query, Security
 from app.auth import get_api_key
 from app.models import SearchResponse
 from fastapi.responses import JSONResponse
+from app.routers.v1.markdown_to_pdf import generate_pdf
 from app.routers.v1.scrape import Scraper
 from app.routers.v1.search_news import search_news
 
@@ -34,3 +35,9 @@ scraper = Scraper()
 async def scrape_content(urls: List[str], api_key: str = Security(get_api_key)):
     content = await scraper.multi_run(urls=urls)
     return content
+
+
+@router.post("/get_pdf_url/", response_model=str)
+async def get_pdf_url(markdown: str, keywords: str, api_key: str = Security(get_api_key)):
+    url = await generate_pdf(markdown, keywords)
+    return url
