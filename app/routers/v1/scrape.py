@@ -1,5 +1,6 @@
 import asyncio
 import re
+from async_lru import alru_cache
 from bs4 import BeautifulSoup
 import httpx
 
@@ -15,6 +16,7 @@ class Scraper():
             "Upgrade-Insecure-Requests": "1",
         }
 
+    @alru_cache(maxsize=1024, ttl=60*60*12)
     async def run(self, url):
         async with httpx.AsyncClient() as client:  # Use httpx.AsyncClient
             page = await client.get(  # Await the get request
