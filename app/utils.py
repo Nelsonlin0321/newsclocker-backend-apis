@@ -53,7 +53,7 @@ def get_current_time(relative_time_str):
 
 def sanitize_filename(filename: str) -> str:
     # Replace any character that is not alphanumeric or underscore with an underscore
-    sanitized = re.sub(r'[^a-zA-Z0-9_]', '_', filename)
+    sanitized = re.sub(r'\W', '_', filename)
     return sanitized
 
 
