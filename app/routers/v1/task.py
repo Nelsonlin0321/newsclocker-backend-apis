@@ -1,15 +1,18 @@
 
-import cuid
-from copy import deepcopy
-from datetime import datetime
+import datetime
 import json
 import os
+from copy import deepcopy
+
+import cuid
+from openai import OpenAI
 from pymongo import MongoClient
+
+from app.routers.v1.markdown_to_pdf import generate_pdf
+from app.routers.v1.scrape import Scraper
 from app.routers.v1.search_news import search_news
 from app.utils import process_keywords
-from app.routers.v1.scrape import Scraper
-from openai import OpenAI
-from app.routers.v1.markdown_to_pdf import generate_pdf
+
 mongodb_url = os.getenv("MONGODB_URL")
 mongodb_client = MongoClient(mongodb_url)
 db = mongodb_client['default']
@@ -33,7 +36,7 @@ date_range_map = {
 async def execute_subscription_task(subscription_id):
 
     subscription = db['NewsSubscription'].find_one({"_id": subscription_id})
-    if subscription:
+    if not subscription:
         return {"status": "error", "detail": f"Subscription {subscription_id} not found"}
 
     query = process_keywords(
@@ -42,7 +45,7 @@ async def execute_subscription_task(subscription_id):
     q = query
     gl = subscription['country']
     hl = subscription['language']
-    num = 20
+    num = 10
     tbs = date_range_map[subscription['dateRange']]
 
     search_result = await search_news(q=q, gl=gl, hl=hl, num=num, tbs=tbs)
@@ -94,7 +97,7 @@ async def execute_subscription_task(subscription_id):
     title = response.choices[0].message.content
 
     # Updated to use timezone-aware UTC now
-    createdAt = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    createdAt = datetime.datetime.now(datetime.timezone.utc)
     newsSubscriptionId = subscription_id
     scrapeContent = contents
     searchResult = search_result

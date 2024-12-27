@@ -2,6 +2,7 @@ from typing import List
 import os
 import boto3
 import re
+import pandas as pd
 from datetime import datetime, timedelta
 import json
 from loguru import logger
@@ -98,7 +99,7 @@ def convert_distance_to_now(distance_str: str) -> datetime:
 
             return datetime.now() - delta
         else:
-            date_object = datetime.strptime(distance_str, "%d %b %Y")
+            date_object = pd.to_datetime(distance_str).to_pydatetime()
 
             return date_object
     except Exception as e:
