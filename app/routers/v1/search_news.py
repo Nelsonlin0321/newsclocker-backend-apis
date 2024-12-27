@@ -2,6 +2,7 @@ import os
 import json
 from async_lru import alru_cache
 import httpx
+from app import utils
 
 
 SERPER_API_KEY = os.environ["SERPER_API_KEY"]
@@ -25,4 +26,9 @@ async def search_news(q, gl="us", hl="en", num=10, tbs="qdr:d"):
     async with httpx.AsyncClient() as client:
         response = await client.post(URL, headers=headers, data=payload)
 
-    return response.json()
+    search_result = response.json()
+
+    for news in search_result['news']:
+        news['date'] = utils.convert_distance_to_now(news['date'])
+
+    return search_result

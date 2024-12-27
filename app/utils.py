@@ -67,3 +67,39 @@ def upload_file_to_s3(file_path, bucket_name="cloudfront-aws-bucket", s3_folder=
     logger.info(f"Uploaded {file_path} to s3://{bucket_name}/{s3_path}")
 
     return f"https://d2gewc5xha837s.cloudfront.net/{s3_path}"
+
+
+def convert_distance_to_now(distance_str: str) -> datetime:
+
+    try:
+        match = re.match(r'(\d+)\s+(\w+)\s+ago', distance_str)
+        if match:
+            value = int(match.group(1))
+            unit = match.group(2).lower()
+
+            # Map the unit to timedelta
+            if unit.startswith('hour'):
+                delta = timedelta(hours=value)
+            elif unit.startswith('minute'):
+                delta = timedelta(minutes=value)
+            elif unit.startswith('second'):
+                delta = timedelta(seconds=value)
+            elif unit.startswith('day'):
+                delta = timedelta(days=value)
+            elif unit.startswith('week'):
+                delta = timedelta(weeks=value)
+            elif unit.startswith('month'):
+                delta = timedelta(days=30*value)
+            elif unit.startswith('year'):
+                delta = timedelta(days=365*value)
+            else:
+                raise ValueError("Unsupported time unit")
+
+            return datetime.now() - delta
+        else:
+            date_object = datetime.strptime(distance_str, "%d %b %Y")
+
+            return date_object
+    except Exception as e:
+        logger.error(str(e))
+        return datetime.now() - timedelta(weeks=1)
