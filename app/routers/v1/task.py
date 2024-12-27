@@ -69,32 +69,24 @@ async def execute_subscription_task(subscription_id):
 
     prompt = get_prompt(user_prompt, new_articles, news_reference)
 
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": prompt},
-        ],
-        stream=False
-    )
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": prompt},
+    ]
 
-    ai_insight = response.choices[0].message.content
+    ai_insight = await get_chat_response(messages)
 
     title_prompt = """
     Extract title from this article, the title not more than 8 words.
     Directly return title only without any introducing.
     """
 
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[
-            {"role": "assistant", "content": ai_insight},
-            {"role": "user", "content": title_prompt},
-        ],
-        stream=False
-    )
+    messages = [
+        {"role": "assistant", "content": ai_insight},
+        {"role": "user", "content": title_prompt},
+    ]
 
-    title = response.choices[0].message.content
+    title = await get_chat_response(messages)
 
     # Updated to use timezone-aware UTC now
     createdAt = datetime.datetime.now(datetime.timezone.utc)
@@ -122,6 +114,15 @@ async def execute_subscription_task(subscription_id):
     mail_id = mail.inserted_id
 
     return {"status": "success", "detail": f"The mail f{mail_id} has been generated."}
+
+
+async def get_chat_response(messages):
+    response = client.chat.completions.create(
+        model="deepseek-chat",
+        messages=messages,
+        stream=False
+    )
+    return response.choices[0].message.content
 
 
 def get_prompt(user_prompt: str, new_articles: str, news_reference: str):
