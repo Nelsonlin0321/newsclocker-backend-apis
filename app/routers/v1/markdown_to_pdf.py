@@ -1,3 +1,4 @@
+import os
 from datetime import datetime
 from async_lru import alru_cache
 from markdown_pdf import MarkdownPdf, Section
@@ -26,4 +27,5 @@ async def generate_pdf(markdown: str, keywords: str):
     # print(markdown)
     file_path = markdown_to_pdf(markdown, keywords)
     pdf_url = upload_file_to_s3(file_path)
+    os.remove(file_path)
     return pdf_url
