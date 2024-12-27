@@ -1,3 +1,4 @@
+from typing import List
 import os
 import boto3
 import re
@@ -103,3 +104,11 @@ def convert_distance_to_now(distance_str: str) -> datetime:
     except Exception as e:
         logger.error(str(e))
         return datetime.now() - timedelta(weeks=1)
+
+
+def process_keywords(keywords: List[str], news_sources: List[str]):
+    q = " OR ".join(sorted([k.lower().strip() for k in keywords]))
+    news_sources = " OR ".join(
+        [f"site:{n}".lower() for n in sorted(news_sources)])
+    query = q + " " + news_sources
+    return query
