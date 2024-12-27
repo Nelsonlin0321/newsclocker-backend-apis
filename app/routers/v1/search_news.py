@@ -29,6 +29,6 @@ async def search_news(q, gl="us", hl="en", num=10, tbs="qdr:d"):
     search_result = response.json()
 
     for news in search_result['news']:
-        news['date'] = utils.convert_distance_to_now(news['date'])
+        news['date'] = utils.convert_distance_to_now(news['date']).isoformat()
 
     return search_result

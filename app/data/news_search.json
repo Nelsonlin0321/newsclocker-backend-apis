@@ -1,0 +1,104 @@
+{
+    "searchParameters": {
+        "q": "hong kong housing trends OR hong kong property investment OR hong kong property market OR hong kong property news OR hong kong real estate site:scmp.com",
+        "gl": "hk",
+        "hl": "en",
+        "type": "news",
+        "num": 10,
+        "tbs": null,
+        "engine": "google"
+    },
+    "news": [
+        {
+            "title": "Owners of Hong Kong properties with illegal additions cannot \u2018buy their way out\u2019",
+            "link": "https://www.scmp.com/news/hong-kong/society/article/3291379/owners-hong-kong-properties-illegal-additions-cannot-buy-their-way-out",
+            "snippet": "Hong Kong's development minister has warned that property owners cannot \u201cbuy their way out\u201d of taking down large-scale illegal structures,...",
+            "date": "1 week ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScZpcyBbfmseo7ADrTaROkNb3h4Elc-6V1tRX-NA7n4M0FdXJTK07KuvM&usqp=CAI&s",
+            "position": 1
+        },
+        {
+            "title": "Hong Kong will not restore land-sale scheme axed in 2013, development chief says",
+            "link": "https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3291820/hong-kong-will-not-restore-land-sale-scheme-axed-2013-official-says",
+            "snippet": "Mechanism allowed developers to apply for sites listed by the government and offer a minimum price, triggering a public auction or tender.",
+            "date": "4 days ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXH2aUw8m4tgM9-XmQqXemI76njpaZo6OCMbSvVEcZviVxsXcEl0LiPV0&usqp=CAI&s",
+            "position": 2
+        },
+        {
+            "title": "Opinion | Weakest link in Hong Kong\u2019s tech ecosystem? Scale-up funding",
+            "link": "https://www.scmp.com/opinion/hong-kong-opinion/article/3291846/weakest-link-hong-kongs-tech-ecosystem-scale-funding",
+            "snippet": "Hong Kong has made significant strides since the establishment of Cyberport and Hong Kong Science Park decades ago, which have since evolved...",
+            "date": "1 day ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7Ewbt4WJ17zCg6JLjiDgOz6c_RmBRKSZY3jJ9L1iJXZ6NrgcSf00sgwk&usqp=CAI&s",
+            "position": 3
+        },
+        {
+            "title": "Hong Kong outshines Singapore as demand for flexible office space grows: report",
+            "link": "https://www.scmp.com/business/article/3291400/hong-kong-demand-flexible-office-space-grows-market-singapore-slumps",
+            "snippet": "Demand for flexible office space in Hong Kong grew this year as a three-year slide in rental attracted companies from financial and legal...",
+            "date": "6 days ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmWvB_81BxyQBTZZ6UocyGVr3XbQjZYeC2poAplOYbHdjkc4oqKw-nJn8&usqp=CAI&s",
+            "position": 4
+        },
+        {
+            "title": "China property flare-ups resurface as crisis enters fifth year",
+            "link": "https://www.scmp.com/business/article/3291879/china-property-flare-ups-resurface-crisis-enters-fifth-year",
+            "snippet": "One of China's leading developers is now on authorities' radar for default risk. A major Hong Kong builder is asking lenders to extend loans...",
+            "date": "3 days ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKxyo7BAjpW98XmXyhhnhaCcf-E6Fb8aOe4UOzSpWY0HxCsA4h3Me6T5M&usqp=CAI&s",
+            "position": 5
+        },
+        {
+            "title": "Breaking China, Asia, HK News, Opinions and Insights | South China Morning Post",
+            "link": "https://www.scmp.com/",
+            "snippet": "News, opinions, infographics and videos on China issues: geopolitics, diplomacy, economy, technology and lifestyle.",
+            "date": "30 Aug 2012",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNZKQjRXpATLryGKVFCfY9nxQxQIA2x6xNms5XPvUfacPfXr6XLHN-hUM&usqp=CAI&s",
+            "position": 6
+        },
+        {
+            "title": "Hong Kong should open third medical school sooner amid Sino-US tensions: expert",
+            "link": "https://www.scmp.com/news/hong-kong/health-environment/article/3291900/hong-kong-should-start-third-medical-school-sooner-amid-sino-us-tensions-expert",
+            "snippet": "Former head of Hospital Authority Anthony Wu says new institution must embrace technology and prepare to train talent soon.",
+            "date": "3 days ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8qdsQzTPGR2hTrJCY6Hv036OzHGjnWG8FLku0yoYGfWozfhk-AE40Vi4&usqp=CAI&s",
+            "position": 7
+        },
+        {
+            "title": "Hong Kong Legco president defends delegation\u2019s Tokyo duty visit amid cost concerns",
+            "link": "https://www.scmp.com/news/hong-kong/politics/article/3292269/hong-kong-legco-president-defends-delegations-tokyo-duty-visit-amid-cost-concerns",
+            "snippet": "Eight-member delegation travelled to Japanese capital for four-day visit with budget capped at an estimated HK$250000.",
+            "date": "1 hour ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ9P8NZf1oWKeO6FlHe8oFtuX9_mI6KFPvRRwE78izg7TYId-Aj9P_ONo&usqp=CAI&s",
+            "position": 8
+        },
+        {
+            "title": "Chinese firms seek European base for factories amid trade tensions, tariffs",
+            "link": "https://www.scmp.com/business/article/3292133/chinese-firms-seek-european-base-factories-amid-trade-tensions-tariffs",
+            "snippet": "European industrial real estate developer CTP expects increased demand from Chinese firms that do not want to get caught in the trade war.",
+            "date": "9 hours ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-5JA9N-7W7SaBuCPfEJmKmeLemSaOtKWnttInUwwTl2Du6mUe05MiQ34&usqp=CAI&s",
+            "position": 9
+        },
+        {
+            "title": "Hong Kong could try an evolved approach to workfare, like Singapore",
+            "link": "https://www.scmp.com/opinion/letters/article/3291355/hong-kong-could-try-evolved-approach-workfare-singapore",
+            "snippet": "Feel strongly about these letters, or any other aspects of the news? Share your views by emailing us your Letter to the Editor at...",
+            "date": "6 days ago",
+            "source": "South China Morning Post",
+            "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToO6ea3-2SXTq2_yzVwA1X98OL4fxndR18xoPFSjqvOU5GjQefAMWozYQ&usqp=CAI&s",
+            "position": 10
+        }
+    ],
+    "credits": 1
+}
