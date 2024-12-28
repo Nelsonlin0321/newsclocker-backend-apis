@@ -3,8 +3,9 @@ from typing import List
 from fastapi import APIRouter, Depends, Query, Security, status
 from app.auth import get_api_key
 from app.dependencies import get_db, get_openai_client
-from app.models import SearchResponse
+from app.models import DeliverToMail, SearchResponse
 from fastapi.responses import JSONResponse
+from app.routers.v1.deliver_to_the_mail import deliver_to_the_mail
 from app.routers.v1.markdown_to_pdf import generate_pdf
 from app.routers.v1.scrape import Scraper
 from app.routers.v1.search_news import search_news
@@ -60,4 +61,19 @@ async def execute(subscription_id: str, db=Depends(get_db), openai_client=Depend
     except Exception as e:
         error_details = traceback.format_exc()  # Get the traceback details
         return JSONResponse(content={"message": str(e), "trace": error_details},
+                            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@router.post("/deliver-mail/")
+async def deliver_mail(payload: DeliverToMail, db=Depends(get_db), openai_client=Depends(get_openai_client), api_key: str = Security(get_api_key)):
+    try:
+        result = await deliver_to_the_mail(subscription_id=payload.subscriptionId,
+                                           search_result=payload.searchResult,
+                                           ai_insight=payload.aiInsight,
+                                           pdfUrl=payload.pdfUrl,
+                                           db=db, openai_client=openai_client)
+        return result
+    except Exception as e:
+        error_details = traceback.format_exc()  # Get the traceback details
+        return JSONResponse(content={"detail": str(e), "trace": error_details, "status": "error"},
                             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)

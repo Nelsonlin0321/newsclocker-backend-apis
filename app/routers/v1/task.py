@@ -2,10 +2,10 @@
 import datetime
 import json
 from copy import deepcopy
-from typing import Dict, List
 import cuid
 from openai import OpenAI
 from pymongo.database import Database
+from app.chat import get_chat_response
 from app.routers.v1.markdown_to_pdf import generate_pdf
 from app.routers.v1.scrape import Scraper
 from app.routers.v1.search_news import search_news
@@ -103,15 +103,6 @@ async def execute_subscription_task(subscription_id, db: Database, openai_client
     mail_id = mail.inserted_id
 
     return {"status": "success", "detail": f"The mail f{mail_id} has been generated."}
-
-
-async def get_chat_response(client: OpenAI, messages: List[Dict]):
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=messages,
-        stream=False
-    )
-    return response.choices[0].message.content
 
 
 def get_prompt(user_prompt: str, new_articles: str, news_reference: str):
