@@ -1,27 +1,16 @@
 
 import datetime
 import json
-import os
 from copy import deepcopy
-
+from typing import Dict, List
 import cuid
 from openai import OpenAI
-from pymongo import MongoClient
-
+from pymongo.database import Database
 from app.routers.v1.markdown_to_pdf import generate_pdf
 from app.routers.v1.scrape import Scraper
 from app.routers.v1.search_news import search_news
 from app.utils import process_keywords
 
-mongodb_url = os.getenv("MONGODB_URL")
-mongodb_client = MongoClient(mongodb_url)
-db = mongodb_client['default']
-
-
-deep_seek_api_key = os.getenv("DEEPSEEK_API_KEY")
-
-client = OpenAI(api_key=deep_seek_api_key,
-                base_url="https://api.deepseek.com")
 
 date_range_map = {
     "any_time": None,
@@ -33,7 +22,7 @@ date_range_map = {
 }
 
 
-async def execute_subscription_task(subscription_id):
+async def execute_subscription_task(subscription_id, db: Database, openai_client: OpenAI):
 
     subscription = db['NewsSubscription'].find_one({"_id": subscription_id})
     if not subscription:
@@ -74,7 +63,7 @@ async def execute_subscription_task(subscription_id):
         {"role": "user", "content": prompt},
     ]
 
-    ai_insight = await get_chat_response(messages)
+    ai_insight = await get_chat_response(openai_client, messages)
 
     title_prompt = """
     Extract title from this article, the title not more than 8 words.
@@ -86,7 +75,7 @@ async def execute_subscription_task(subscription_id):
         {"role": "user", "content": title_prompt},
     ]
 
-    title = await get_chat_response(messages)
+    title = await get_chat_response(openai_client, messages)
 
     # Updated to use timezone-aware UTC now
     createdAt = datetime.datetime.now(datetime.timezone.utc)
@@ -116,7 +105,7 @@ async def execute_subscription_task(subscription_id):
     return {"status": "success", "detail": f"The mail f{mail_id} has been generated."}
 
 
-async def get_chat_response(messages):
+async def get_chat_response(client: OpenAI, messages: List[Dict]):
     response = client.chat.completions.create(
         model="deepseek-chat",
         messages=messages,
