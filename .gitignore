@@ -162,4 +162,3 @@ cython_debug/
 #.idea/
 .env.docker
 notebooks/gogoduck-search.ipynb
-uv.lock
