@@ -1,5 +1,8 @@
 # Use a more specific and lighter base image
-FROM python:3.12-slim-bullseye
+FROM python:3.12-slim
+
+# Install uv.
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
@@ -9,21 +12,13 @@ ENV PYTHONUNBUFFERED=1 \
 # Create a non-root user
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 
+COPY . /app
+
 # Set the working directory
 WORKDIR /app
 
 # Copy only requirements first to leverage Docker cache
-COPY requirements.txt .
-
-# Install dependencies in a single layer and clean up
-RUN pip install --no-cache-dir -r requirements.txt && \
-    rm -rf /root/.cache/pip
-
-# Copy the rest of the application code
-COPY . .
-
-# Change ownership of the working directory to the non-root user
-RUN chown -R appuser:appuser /app
+RUN uv sync --frozen --no-cache && chown -R appuser:appuser /app
 
 # Switch to non-root user
 USER appuser

@@ -1,11 +1,22 @@
 # newsclocker-backend-apis
 
+## Uv
+```shell
+
+uv pip install -r pyproject.toml
+```
+
+
 ## Run Locally
 ```shell
 # create a python environment
 python -m venv .venv
 source .venv/bin/activate
-pip3 install -r requirements.txt
+
+uv init
+
+uv pip install -r pyproject.toml
+
 
 # run API locally
 source .venv/bin/activate

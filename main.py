@@ -10,7 +10,7 @@ from pymongo import MongoClient
 import uvicorn
 from app.auth import get_api_key
 from app.routers import v1
-from mangum import Mangum
+# from mangum import Mangum
 
 mongodb_url = os.getenv("MONGODB_URL")
 
@@ -91,13 +91,13 @@ async def get_random_number(query):
     return random.randint(0, 255)
 
 
-@app.get("/get-random")
+@app.get(f"{PREFIX}/get-random")
 async def get_random(query: str = Query(..., description="random query")):
     random_number = await get_random_number(query)
     return random_number
 
 
-handler = Mangum(app)
+# handler = Mangum(app)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
