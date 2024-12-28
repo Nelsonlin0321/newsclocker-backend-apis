@@ -1,14 +1,16 @@
 import datetime
-from typing import Dict
 import cuid
 from openai import OpenAI
 from pymongo.database import Database
 from app.chat import get_chat_response
+from app.models import SearchResponse
 from app.routers.v1.scrape import Scraper
 
 
-async def deliver_to_the_mail(subscription_id: str, search_result: Dict, ai_insight: str,
+async def deliver_to_the_mail(subscription_id: str, search_result: SearchResponse, ai_insight: str,
                               pdfUrl: str, db: Database, openai_client: OpenAI):
+
+    search_result = search_result.model_dump()
 
     scraper = Scraper()
 
@@ -49,4 +51,4 @@ async def deliver_to_the_mail(subscription_id: str, search_result: Dict, ai_insi
     mail = db['Mail'].insert_one(payload_to_insert)
     mail_id = mail.inserted_id
 
-    return {"status": "success", "detail": f"The mail f{mail_id} has been delivered."}
+    return {"status": "success", "detail": f"The mail f{mail_id} has been delivered.", "mailId": mail_id}

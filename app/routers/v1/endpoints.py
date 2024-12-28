@@ -10,7 +10,7 @@ from app.routers.v1.markdown_to_pdf import generate_pdf
 from app.routers.v1.scrape import Scraper
 from app.routers.v1.search_news import search_news
 from app.routers.v1.task import execute_subscription_task
-
+from loguru import logger
 ROUTE_NAME = "v1"
 
 router = APIRouter(
@@ -75,5 +75,6 @@ async def deliver_mail(payload: DeliverToMail, db=Depends(get_db), openai_client
         return result
     except Exception as e:
         error_details = traceback.format_exc()  # Get the traceback details
+        logger.error(f"{e}: {error_details}")
         return JSONResponse(content={"detail": str(e), "trace": error_details, "status": "error"},
                             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
