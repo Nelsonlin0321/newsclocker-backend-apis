@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 
 class NewsItem(BaseModel):
@@ -14,14 +14,22 @@ class NewsItem(BaseModel):
 
 class SearchParameters(BaseModel):
     q: str
-    gl: str
-    hl: str
-    type: str
-    tbs: str
-    engine: str
+    gl: Optional[str] = None
+    hl: Optional[str] = None
+    type: Optional[str] = None
+    num: Optional[int] = None
+    tbs: Optional[str] = None
+    engine: Optional[str] = None
 
 
 class SearchResponse(BaseModel):
     searchParameters: SearchParameters
     news: List[NewsItem]
     credits: int
+
+
+class DeliverToMail(BaseModel):
+    subscriptionId: str
+    aiInsight: str
+    pdfUrl: str
+    searchResult: SearchResponse

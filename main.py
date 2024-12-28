@@ -1,6 +1,8 @@
 import datetime
 import os
-from fastapi import FastAPI, Request, status, Security
+import random
+from async_lru import alru_cache
+from fastapi import FastAPI, Query, Request, status, Security
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from loguru import logger
@@ -8,7 +10,7 @@ from pymongo import MongoClient
 import uvicorn
 from app.auth import get_api_key
 from app.routers import v1
-from mangum import Mangum
+# from mangum import Mangum
 
 mongodb_url = os.getenv("MONGODB_URL")
 
@@ -83,7 +85,19 @@ async def health_check(api_key: str = Security(get_api_key)):
     return JSONResponse(content={"message": response, "start_hk_time": start_time},
                         status_code=status_code)
 
-handler = Mangum(app)
+
+@alru_cache(maxsize=1024, ttl=60*60*12)
+async def get_random_number(query):
+    return random.randint(0, 255)
+
+
+@app.get(f"{PREFIX}/get-random")
+async def get_random(query: str = Query(..., description="random query")):
+    random_number = await get_random_number(query)
+    return random_number
+
+
+# handler = Mangum(app)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

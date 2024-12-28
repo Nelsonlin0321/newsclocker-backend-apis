@@ -1,0 +1,289 @@
+[
+    {
+        "id": "30",
+        "title": "Highlight Key Quotes",
+        "description": "Extract significant quotes or statements from key figures mentioned in the news article, providing context for each quote.",
+        "category": "News Analysis",
+        "icon": "💬"
+    },
+    {
+        "id": "31",
+        "title": "Generate Counterarguments",
+        "description": "Provide counterarguments or alternative perspectives to the views expressed in the news article.",
+        "category": "News Analysis",
+        "icon": "⚔️"
+    },
+    {
+        "id": "32",
+        "title": "Explain Historical Context",
+        "description": "Provide historical context or background information relevant to the events or topics described in the news article.",
+        "category": "News Analysis",
+        "icon": "📜"
+    },
+    {
+        "id": "33",
+        "title": "Identify Policy Implications",
+        "description": "Analyze the news article to identify potential policy changes or implications for governance, laws, or regulations.",
+        "category": "News Analysis",
+        "icon": "🏛️"
+    },
+    {
+        "id": "34",
+        "title": "Evaluate Economic Impact",
+        "description": "Assess the potential economic consequences of the events described in the news article, identifying affected sectors or stakeholders.",
+        "category": "Financial Insights",
+        "icon": "📊"
+    },
+    {
+        "id": "35",
+        "title": "Detect Emerging Risks",
+        "description": "Analyze the news article to highlight new or emerging risks, including political, social, or environmental threats.",
+        "category": "Risk Assessment",
+        "icon": "⚠️"
+    },
+    {
+        "id": "36",
+        "title": "Summarize for Kids",
+        "description": "Rewrite the news article into a simplified version suitable for younger audiences, focusing on clarity and comprehension.",
+        "category": "Simplified Explanation",
+        "icon": "🧒"
+    },
+    {
+        "id": "37",
+        "title": "Personalized Learning Guide",
+        "description": "Create a learning guide from the news article, including key points, questions for reflection, and suggested further reading.",
+        "category": "Personalized Learning",
+        "icon": "📘"
+    },
+    {
+        "id": "38",
+        "title": "Analyze Public Sentiment",
+        "description": "Assess how the public is reacting to the news article by analyzing social media trends, comments, or other feedback.",
+        "category": "Sentiment Analysis",
+        "icon": "📣"
+    },
+    {
+        "id": "39",
+        "title": "Cross-Compare Sources",
+        "description": "Compare the coverage of this news article with other sources to identify inconsistencies, bias, or unique angles.",
+        "category": "News Comparison",
+        "icon": "🔍"
+    },
+    {
+        "id": "40",
+        "title": "Analyze Geopolitical Impact",
+        "description": "Identify the geopolitical implications of the news article, including impacts on international relations or global stability.",
+        "category": "Risk Assessment",
+        "icon": "🌍"
+    },
+    {
+        "id": "41",
+        "title": "Extract Actionable Insights",
+        "description": "Generate actionable insights based on the events described in the news article, tailored for decision-makers.",
+        "category": "News Analysis",
+        "icon": "🔧"
+    },
+    {
+        "id": "42",
+        "title": "Create Investor Brief",
+        "description": "Generate a brief for investors based on the news article, highlighting potential risks, opportunities, and market impacts.",
+        "category": "Financial Insights",
+        "icon": "📈"
+    },
+    {
+        "id": "43",
+        "title": "Monitor Competitor Activities",
+        "description": "Analyze the news article for mentions of competitors, identifying relevant actions or strategies they have undertaken.",
+        "category": "Brand Reputation Monitoring",
+        "icon": "🏢"
+    },
+    {
+        "id": "44",
+        "title": "Predict Social Impact",
+        "description": "Predict the potential social impact of the events described in the news article, including changes in public opinion or behavior.",
+        "category": "Predictive Analytics from News",
+        "icon": "📉"
+    },
+    {
+        "id": "45",
+        "title": "Generate a Q&A Summary",
+        "description": "Turn the news article into a series of questions and answers for easier understanding and engagement.",
+        "category": "Question Answering",
+        "icon": "🤔"
+    },
+    {
+        "id": "46",
+        "title": "Summarize Regional News",
+        "description": "Create a summary of news articles from a specific region, highlighting key events and trends.",
+        "category": "Multi-Document Summarization",
+        "icon": "🌎"
+    },
+    {
+        "id": "47",
+        "title": "Expert Commentary",
+        "description": "Assuming you are an expert in the field related to this news, provide your commentary and analysis on the implications of this news.",
+        "category": "News Analysis",
+        "icon": "🎙️"
+    },
+    {
+        "id": "48",
+        "title": "Generate FAQs",
+        "description": "Create a list of frequently asked questions (FAQs) and answers based on the content of the news article.",
+        "category": "Question Answering",
+        "icon": "❓"
+    },
+    {
+        "id": "49",
+        "title": "Identify Ethical Concerns",
+        "description": "Analyze the news article to identify potential ethical issues or dilemmas raised by the events or topics discussed.",
+        "category": "News Analysis",
+        "icon": "⚖️"
+    },
+    {
+        "id": "50",
+        "title": "Compare Historical Events",
+        "description": "Identify historical parallels to the events described in the news article and analyze similarities or differences.",
+        "category": "News Analysis",
+        "icon": "📜"
+    },
+    {
+        "id": "51",
+        "title": "Generate Social Media Post",
+        "description": "Create a concise and engaging social media post summarizing the news article for quick sharing.",
+        "category": "News-Based Story Generation",
+        "icon": "💻"
+    },
+    {
+        "id": "52",
+        "title": "Detect Cultural Context",
+        "description": "Analyze the cultural context of the news article, identifying how cultural norms or values might influence its interpretation.",
+        "category": "Cross-Lingual News Analysis",
+        "icon": "🌐"
+    },
+    {
+        "id": "53",
+        "title": "Highlight Contradictions",
+        "description": "Identify any contradictions or inconsistencies within the news article or between this article and other sources.",
+        "category": "Fact Checking",
+        "icon": "❗"
+    },
+    {
+        "id": "54",
+        "title": "Recommend Further Reading",
+        "description": "Suggest related articles, research papers, or books that provide further context or information on the topic discussed.",
+        "category": "Content Recommendation",
+        "icon": "📚"
+    },
+    {
+        "id": "55",
+        "title": "Identify Market Trends",
+        "description": "Analyze the news for emerging market trends, identifying potential opportunities or challenges for businesses.",
+        "category": "Trend Analysis",
+        "icon": "📈"
+    },
+    {
+        "id": "56",
+        "title": "Generate Infographic",
+        "description": "Summarize the key points of the news article into an infographic format, making it visually appealing and easy to understand.",
+        "category": "Data Visualization from News",
+        "icon": "📊"
+    },
+    {
+        "id": "57",
+        "title": "Identify Propaganda Techniques",
+        "description": "Analyze the article for common propaganda techniques, such as bandwagoning, fear appeals, or emotional manipulation.",
+        "category": "Propaganda Detection",
+        "icon": "📢"
+    },
+    {
+        "id": "58",
+        "title": "Summarize for Professionals",
+        "description": "Create a professional summary of the news article tailored for specific industries or professional audiences.",
+        "category": "Personalized News Digest",
+        "icon": "🏢"
+    },
+    {
+        "id": "59",
+        "title": "Evaluate Environmental Impact",
+        "description": "Assess the potential environmental consequences of the events described in the news article.",
+        "category": "Risk Assessment",
+        "icon": "🌱"
+    },
+    {
+        "id": "60",
+        "title": "Analyze Public Health Implications",
+        "description": "Identify potential public health risks or outcomes based on the events described in the news article.",
+        "category": "Risk Assessment",
+        "icon": "🏥"
+    },
+    {
+        "id": "61",
+        "title": "Generate Debate Points",
+        "description": "Create a list of debate points for and against the topic discussed in the news article, supporting each with evidence.",
+        "category": "News Analysis",
+        "icon": "📢"
+    },
+    {
+        "id": "62",
+        "title": "Summarize Breaking News",
+        "description": "Provide a quick, real-time summary of breaking news, prioritizing the most urgent and impactful information.",
+        "category": "News Summarization",
+        "icon": "🚨"
+    },
+    {
+        "id": "63",
+        "title": "Create Localized Summary",
+        "description": "Generate a summary of the news article tailored to a specific region or audience, emphasizing local relevance.",
+        "category": "Personalized News Digest",
+        "icon": "📍"
+    },
+    {
+        "id": "64",
+        "title": "Analyze Public Policies",
+        "description": "Evaluate the implications of the news article on public policies, identifying potential changes or reforms.",
+        "category": "News Analysis",
+        "icon": "📜"
+    },
+    {
+        "id": "65",
+        "title": "Extract Technical Details",
+        "description": "Identify and explain any technical or intricate details discussed in the news article, such as scientific or technological concepts.",
+        "category": "News Analysis",
+        "icon": "🔬"
+    },
+    {
+        "id": "66",
+        "title": "Identify Stakeholders",
+        "description": "List all the key stakeholders involved in the events described in the news article and their respective roles or interests.",
+        "category": "Relationship Extraction",
+        "icon": "🤝"
+    },
+    {
+        "id": "67",
+        "title": "Create Educational Summary",
+        "description": "Turn the news article into an educational resource, providing structured information and key takeaways for students or learners.",
+        "category": "Personalized Learning",
+        "icon": "🎓"
+    },
+    {
+        "id": "68",
+        "title": "Analyze Media Framing",
+        "description": "Evaluate how the news article frames its narrative, identifying any specific angles, biases, or omissions in its presentation.",
+        "category": "Bias Detection",
+        "icon": "🖼️"
+    },
+    {
+        "id": "69",
+        "title": "Provide Crisis Insights",
+        "description": "Analyze the news article to provide insights into ongoing crises, including affected areas, populations, and potential resolutions.",
+        "category": "Risk Assessment",
+        "icon": "🌪️"
+    },
+    {
+        "id": "70",
+        "title": "Detect Fake News Indicators",
+        "description": "Identify signs that the news article may contain fake or manipulated information, such as unverifiable claims or suspicious sources.",
+        "category": "Misinformation Detection",
+        "icon": "🛑"
+    }
+]
