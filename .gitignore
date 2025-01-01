@@ -162,4 +162,6 @@ cython_debug/
 #.idea/
 .env.docker
 notebooks/gogoduck-search.ipynb
-uv.lock
+notebooks/get-mail.ipynb
+example_mail.json
+example_subscription.json
