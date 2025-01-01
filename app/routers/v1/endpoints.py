@@ -42,8 +42,8 @@ async def scrape_content(urls: List[str], api_key: str = Security(get_api_key)):
 
 
 @router.get("/get-pdf-url/", response_model=str)
-async def get_pdf_url(markdown: str, keywords: str, api_key: str = Security(get_api_key)):
-    url = await generate_pdf(markdown, keywords)
+async def get_pdf_url(markdown: str, title: str, api_key: str = Security(get_api_key)):
+    url = await generate_pdf(markdown, title)
     return url
 
 
