@@ -60,7 +60,7 @@ async def log_requests(request: Request, call_next):
     return response
 
 
-@app.get(f"{PREFIX}/health_check")
+@app.get(f"{PREFIX}/health-check")
 async def health_check(api_key: str = Security(get_api_key)):
     """
     Endpoint to check the server's uptime.
@@ -71,7 +71,7 @@ async def health_check(api_key: str = Security(get_api_key)):
     """
     try:
         client = MongoClient(mongodb_url)
-        db = client["search"]
+        db = client["newsclocker"]
         db.command("ping")
         response = "Connected to the MongoDB Database!"
         status_code = status.HTTP_200_OK  # Successful connection
