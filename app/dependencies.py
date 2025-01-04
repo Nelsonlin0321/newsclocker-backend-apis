@@ -8,7 +8,7 @@ deep_seek_api_key = os.getenv("DEEPSEEK_API_KEY")
 
 def get_db():
     mongodb_client = MongoClient(mongodb_url)
-    db = mongodb_client['default']
+    db = mongodb_client['newsclocker']
     return db
 
 
