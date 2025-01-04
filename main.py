@@ -61,7 +61,7 @@ async def log_requests(request: Request, call_next):
 
 
 @app.get(f"{PREFIX}/health-check")
-async def health_check(api_key: str = Security(get_api_key)):d
+async def health_check(api_key: str = Security(get_api_key)):
     """
     Endpoint to check the server's uptime.
 
