@@ -35,19 +35,19 @@ async def search(
 scraper = Scraper()
 
 
-@router.post("/scrape/", response_model=List[str])
+@router.post("/scrape", response_model=List[str])
 async def scrape_content(urls: List[str], api_key: str = Security(get_api_key)):
     content = await scraper.multi_run(urls=urls)
     return content
 
 
-@router.get("/get-pdf-url/", response_model=str)
+@router.get("/get-pdf-url", response_model=str)
 async def get_pdf_url(markdown: str, title: str, api_key: str = Security(get_api_key)):
     url = await generate_pdf(markdown, title)
     return url
 
 
-@router.get("/execute-task/")
+@router.get("/execute-task")
 async def execute(subscription_id: str, db=Depends(get_db), openai_client=Depends(get_openai_client), api_key: str = Security(get_api_key)):
     try:
         status_with_message = await execute_subscription_task(subscription_id, db=db, openai_client=openai_client)
@@ -64,7 +64,7 @@ async def execute(subscription_id: str, db=Depends(get_db), openai_client=Depend
                             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-@router.post("/deliver-mail/")
+@router.post("/deliver-mail")
 async def deliver_mail(payload: DeliverToMail, db=Depends(get_db), openai_client=Depends(get_openai_client), api_key: str = Security(get_api_key)):
     try:
         result = await deliver_to_the_mail(subscription_id=payload.subscriptionId,
