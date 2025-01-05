@@ -37,7 +37,7 @@ scraper = Scraper()
 
 @router.post("/scrape", response_model=List[str])
 async def scrape_content(urls: List[str], api_key: str = Security(get_api_key)):
-    content = await scraper.multi_run(urls=urls[:20])
+    content = await scraper.multi_run(urls=urls[:15])
     return content
 
 
