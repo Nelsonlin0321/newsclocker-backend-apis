@@ -18,20 +18,25 @@ class Scraper():
 
     @alru_cache(maxsize=1024, ttl=60*60*12)
     async def run(self, url):
-        async with httpx.AsyncClient() as client:  # Use httpx.AsyncClient
-            page = await client.get(  # Await the get request
-                url,
-                timeout=15,
-                headers=self.headers
-            )
+        try:
+            async with httpx.AsyncClient() as client:  # Use httpx.AsyncClient
+                page = await client.get(  # Await the get request
+                    url,
+                    timeout=5,
+                    headers=self.headers
+                )
 
-            # page.encoding = page.apparent_encoding
-            parsed = BeautifulSoup(page.text, "html.parser")
+                # page.encoding = page.apparent_encoding
+                parsed = BeautifulSoup(page.text, "html.parser")
 
-            text = parsed.get_text(" ")
-            text = re.sub('[ \t]+', ' ', text)
-            text = re.sub('\\s+\n\\s+', '\n', text)
-            return text
+                text = parsed.get_text(" ")
+                text = re.sub('[ \t]+', ' ', text)
+                text = re.sub('\\s+\n\\s+', '\n', text)
+                return text
+        except Exception as e:
+            error_details = traceback.format_exc()
+            logger.error(f"Error scraping {url}: {str(e)} with error: {error_details}")
+            return ""
 
     async def multi_run(self, urls):
         tasks = [self.run(url) for url in urls]  # Create a list of tasks
